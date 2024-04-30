@@ -1,6 +1,3 @@
-use services::{payment_service_client::PaymentServiceClient, PaymentRequest,
-    transaction_service_client::TransactionServiceClient, TransactionRequest,
-    chat_service_client::ChatServiceClient, ChatMessage};
 use tonic::transport::Channel;
 use tokio::sync::mpsc;
 use tokio_stream::wrappers::ReceiverStream;
@@ -10,6 +7,10 @@ use tokio::io::{self, AsyncBufReadExt};
 pub mod services{
     tonic::include_proto!("services");
 }
+
+use services::{payment_service_client::PaymentServiceClient, PaymentRequest,
+    transaction_service_client::TransactionServiceClient, TransactionRequest,
+    chat_service_client::ChatServiceClient, ChatMessage};
 
 #[tokio::main]
 async fn main()->Result<(), Box<dyn std::error::Error>>{
