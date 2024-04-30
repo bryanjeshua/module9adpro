@@ -4,6 +4,7 @@ There are important security considerations related to authentication, authoriza
 
 
 - What are the potential security considerations involved in implementing a gRPC service in Rust, particularly regarding authentication, authorization, and data encryption?
+
 There are important security considerations related to authentication, authorization, and encryption while implementing a gRPC service in Rust. To avoid unwanted access, every request must be authenticated and permitted. Data confidentiality and tamper resistance are ensured during transmission by encrypting it using TLS between the client and server. This is particularly crucial in settings where handling sensitive data occurs or when data security and integrity are critical.
 
 
@@ -13,10 +14,12 @@ There are particular difficulties in handling bidirectional streaming in Rust's 
 
 
 - What are the advantages and disadvantages of using the tokio_stream::wrappers::ReceiverStream for streaming responses in Rust gRPC services?
+
 The use of ```tokio_stream::wrappers::ReceiverStream`` in Rust gRPC services has benefits such as efficient asynchronous streaming capabilities that align well with Rust’s Tokio runtime. However, it gives complexity in error handling and stream management. It could increase the difficulty of maintaining and scaling the application. This makes it a powerful tool for those who need high-performance streaming but also adds a layer of complexity in application architecture.
 
 
 - In what ways could the Rust gRPC code be structured to facilitate code reuse and modularity, promoting maintainability and extensibility over time?
+
 Rust gRPC code should be organized into functionally-defined modules in order to improve maintainability and flexibility. It facilitates testing and change isolation. For service definitions, using traits and interfaces improves the flexibility to add or change features without requiring significant rewrites. Not only may Protocol Buffers be used to implement service interactions, but they also standardize data structures and make interface maintenance within and between applications easier.
 
 - In the MyPaymentService implementation, what additional steps might be necessary to handle more complex payment processing logic?
@@ -39,4 +42,5 @@ When it comes to real-time and high-performance applications, the gRPC framework
 
 
 - What are the implications of the schema-based approach of gRPC, using Protocol Buffers, compared to the more flexible, schema-less nature of JSON in REST API payloads?
+
 Protocol Buffers are used by gRPC. It demands a predetermined schema, which leads to data exchanges that are precisely defined and written. This makes serialization and deserialization more efficient, boosting performance and lowering errors in data handling. JSON, on the other hand, is more flexible and does not have strict schema restrictions, which makes ad hoc data modification easier. However, this flexibility comes at the cost of potential data inconsistency and less efficient processing. While this flexibility may be useful for less complex or important data interactions, it may also make it more difficult to ensure data integrity and application scalability.
